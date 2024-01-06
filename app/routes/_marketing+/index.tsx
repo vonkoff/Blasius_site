@@ -6,78 +6,60 @@ import {
 	TooltipTrigger,
 } from '#app/components/ui/tooltip.tsx'
 import { logos, stars } from './logos/logos.ts'
+import { MapPin, Clock10 } from 'lucide-react'
 
 export const meta: MetaFunction = () => [{ title: 'Epic Notes' }]
 
 export default function Index() {
 	return (
-		<main className="relative min-h-screen sm:flex sm:items-center sm:justify-center">
-			<div className="relative sm:pb-16 sm:pt-8">
-				<div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-					<div className="relative shadow-xl sm:overflow-hidden sm:rounded-2xl">
+		<main className="relative  sm:items-center sm:justify-center">
+			<div className="relative">
+				<div className="mx-auto max-w-7xl ">
+					<div className="relative shadow-xl ">
 						<div className="absolute inset-0">
-							<img className="h-full w-full object-cover" src={stars} alt="" />
+							<img className="h-full w-full object-cover"
+                            src="https://di-uploads-development.dealerinspire.com/blasiuspreownedauto/uploads/2023/09/BLASIUS-PRE-OWNED.png" alt="" />
 							<div className="absolute inset-0 bg-[color:rgba(30,23,38,0.5)] mix-blend-multiply" />
 						</div>
-						<div className="lg:pt-18 relative px-4 pb-8 pt-8 sm:px-6 sm:pb-14 sm:pt-16 lg:px-8 lg:pb-20">
-							<h1 className="text-center text-mega font-extrabold tracking-tight sm:text-8xl lg:text-9xl">
-								<a
-									className="block uppercase text-white drop-shadow-md"
-									href="https://www.epicweb.dev/stack"
-								>
-									<span>Epic Stack</span>
-									<svg
-										className="mx-auto mt-2"
-										xmlns="http://www.w3.org/2000/svg"
-										width="120"
-										height="120"
-										fill="none"
-										viewBox="0 0 65 65"
-									>
-										<path
-											fill="currentColor"
-											d="M39.445 25.555 37 17.163 65 0 47.821 28l-8.376-2.445Zm-13.89 0L28 17.163 0 0l17.179 28 8.376-2.445Zm13.89 13.89L37 47.837 65 65 47.821 37l-8.376 2.445Zm-13.89 0L28 47.837 0 65l17.179-28 8.376 2.445Z"
-										></path>
-									</svg>
-								</a>
+						<div className="lg:pt-18 relative px-4 pb-8 pt-8 sm:px-6 sm:pb-14 sm:pt-16 lg:px-8 lg:pb-20 font-sans
+                        drop-shadow-[2px_2px_var(--tw-shadow-color)] shadow-black">
+							<h1 className="text-center font-bold tracking-tight text-3xl md:text-4xl lg:text-5xl">
+									<span className="text-white">Blasius Pre-Owned</span>
 							</h1>
 							<p className="mx-auto mt-6 max-w-lg text-center text-xl text-white sm:max-w-3xl">
-								Check the{' '}
-								<a
-									className="underline"
-									href="https://github.com/epicweb-dev/epic-stack/blob/main/docs/getting-started.md"
-								>
-									Getting Started
-								</a>{' '}
-								guide file for how to get your project off the ground!
+                            Where friends send friends
 							</p>
 						</div>
 					</div>
 				</div>
+			</div>
+            <div>
 
-				<div className="mx-auto mt-8 max-w-7xl px-4 py-2 sm:px-6 lg:px-8">
-					<div className="flex flex-wrap justify-center gap-8 rounded-3xl bg-slate-100 py-4 dark:bg-slate-200">
-						<TooltipProvider>
-							{logos.map(img => (
-								<Tooltip key={img.href}>
-									<TooltipTrigger asChild>
-										<a
-											href={img.href}
-											className="flex h-16 w-32 justify-center p-1 grayscale transition hover:grayscale-0 focus:grayscale-0"
-										>
-											<img
-												alt={img.alt}
-												src={img.src}
-												className="object-contain"
-											/>
-										</a>
-									</TooltipTrigger>
-									<TooltipContent>{img.alt}</TooltipContent>
-								</Tooltip>
-							))}
-						</TooltipProvider>
-					</div>
-				</div>
+            <div className="h-full max-h-fit grid grid-cols-1 md:grid-cols-2 justify-center justify-items-center mx-auto items-center bg-black h-1/2">
+                <div className="text-white justify-center flex flex-col gap-1 md:gap-4 mx-2 mb-3">
+                    <h2 className='uppercase text-xs md:text-xl lg:text-2xl mt-4 mb-1 mx-auto'>
+                        Get Directions
+                    </h2>
+                    <span className="flex items-center gap-2 text-xs md:text-xl lg:text-2xl">
+                        <MapPin className="h-4 w-4 md:h-6 md:w-6 lg:h-8 lg:w-8" />
+                        {" "}
+                        465 Federal Rd, Brookfield, CT 06804
+                    </span>
+                    <span className="flex items-center gap-2 text-xs md:text-xl lg:text-2xl">
+                        <Clock10 className="h-4 w-4 md:h-6 md:w-6 lg:h-8 lg:w-8"  />
+                        {" "}
+                        <div className='flex flex-col'>
+                            <p>Open Today! Sales: 9am-5pm</p>
+                            <p>Open Today! Service: 9am-5pm</p>
+                        </div>
+                    </span>
+                </div>
+                <img
+                className='object-cover max-h-64  w-full'
+                src="https://api.mapbox.com/styles/v1/di-sysops/cle6iyspk000301jvzavqrvjp/static/pin-l+1499CE(-73.4056293,41.4596462)/-73.4056293,41.4596462,10,0,0/343x450@2x?access_token=pk.eyJ1IjoiZGktc3lzb3BzIiwiYSI6ImNqMnJzNnRvYTAwOXkzMHBsamE1cTd0OGcifQ.qlCfteKKSMrHmHxG0jahxA"
+                />
+            </div>
+
 			</div>
 		</main>
 	)

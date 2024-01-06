@@ -23,6 +23,8 @@ import {
 	useMatches,
 	useSubmit,
 } from '@remix-run/react'
+
+import { Facebook, Menu } from "lucide-react"
 import { withSentry } from '@sentry/remix'
 import { useRef } from 'react'
 import { AuthenticityTokenProvider } from 'remix-utils/csrf/react'
@@ -41,7 +43,26 @@ import {
 	DropdownMenuPortal,
 	DropdownMenuTrigger,
 } from './components/ui/dropdown-menu.tsx'
-import { Icon, href as iconsHref } from './components/ui/icon.tsx'
+import { Icon, href, href as iconsHref } from './components/ui/icon.tsx'
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from "./components/ui/menubar"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "./components/ui/navigation-menu"
 import { EpicToaster } from './components/ui/sonner.tsx'
 import tailwindStyleSheetUrl from './styles/tailwind.css'
 import { getUserId, logout } from './utils/auth.server.ts'
@@ -236,42 +257,64 @@ function App() {
 
 	return (
 		<Document nonce={nonce} theme={theme} env={data.ENV}>
-			<div className="flex h-screen flex-col justify-between">
-				<header className="container py-6">
-					<nav>
-						<div className="flex flex-wrap items-center justify-between gap-4 sm:flex-nowrap md:gap-8">
-							<Link to="/">
-								<div className="font-light">epic</div>
-								<div className="font-bold">notes</div>
-							</Link>
-							<div className="ml-auto hidden max-w-sm flex-1 sm:block">
-								{searchBar}
-							</div>
-							<div className="flex items-center gap-10">
-								{user ? (
-									<UserDropdown />
-								) : (
-									<Button asChild variant="default" size="sm">
-										<Link to="/login">Log In</Link>
-									</Button>
-								)}
-							</div>
-							<div className="block w-full sm:hidden">{searchBar}</div>
-						</div>
-					</nav>
+        			<div className="flex h-screen flex-col justify-between">
+				<div className="bg-neutral-800 pt-0.5 text-white sm:py-1 text-xs lg:text-sm">
+                    <div className='hidden md:flex items-center justify-evenly'>
+                        <div>
+                        OPEN TODAY! SALES: 8:30AM-5PM
+                        </div>
+                        <div>
+                        SALES: {" "}
+                        <a className="font-bold underline" href="tel:203-437-8805">203-437-8805</a>
+                        </div>
+                        <div>
+                         480 WATERTOWN AVE, WATERBURY, CT 06708 {" "}
+                        <span className='font-bold underline'>Get Directions</span>
+                        </div>
+                    </div>
+                    <div className='flex md:hidden items-center justify-evenly md:hidden'>
+                            Welcome to Blasius Pre-Owned Auto Sales
+                    </div>
+				</div>
+				<header className='py-2.5'>
+                    <nav>
+                        <Menubar>
+                        <MenubarMenu>
+                        <MenubarTrigger>
+                            <Menu />
+                        </MenubarTrigger>
+                        <MenubarContent>
+                        <MenubarItem>
+                        Inventory
+                        </MenubarItem>
+                        <MenubarItem>
+                        Bargain Center
+                        </MenubarItem>
+                        </MenubarContent>
+                        </MenubarMenu>
+                        <img className="object-contain h-20 w-96 " src="https://www.blasiuspreowned.com/wp-content/themes/DealerInspireDealerTheme/images/logo-header.png?ver=1697638981" />
+                        </Menubar>
+                    </nav>
 				</header>
 
 				<div className="flex-1">
 					<Outlet />
 				</div>
 
-				<div className="container flex justify-between pb-5">
+                <footer className='text-xs md:text-base flex justify-evenly pb-5 items-center gap-2'>
 					<Link to="/">
-						<div className="font-light">epic</div>
-						<div className="font-bold">notes</div>
+                    <Facebook size={48} strokeWidth={1.5}
+                    className='fill-white text-blue-500 border border-blue-500 rounded bg-blue-500'
+                    />
 					</Link>
-					<ThemeSwitch userPreference={data.requestInfo.userPrefs.theme} />
-				</div>
+                    <div>
+                        <Link to="/sitemap">Sitemap</Link>
+                        {" | "}
+                        <Link to="/bla">Privacy Policy</Link>
+                        {" | "}
+                        <Link to="/sitemap">Terms and Conditions</Link>
+                    </div>
+                </footer>
 			</div>
 			<EpicToaster closeButton position="top-center" theme={theme} />
 			<EpicProgress />
