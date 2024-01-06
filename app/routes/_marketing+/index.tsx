@@ -8,13 +8,14 @@ import {
 import { logos, stars } from './logos/logos.ts'
 import { MapPin, Clock10 } from 'lucide-react'
 
-export const meta: MetaFunction = () => [{ title: 'Epic Notes' }]
+export const meta: MetaFunction = () => [{ title: 'Blasius Car Site' }]
 
 export default function Index() {
 	return (
 		<main className="relative  sm:items-center sm:justify-center">
+
 			<div className="relative">
-				<div className="mx-auto max-w-7xl ">
+				<div className="mx-auto">
 					<div className="relative shadow-xl ">
 						<div className="absolute inset-0">
 							<img className="h-full w-full object-cover"
@@ -33,32 +34,34 @@ export default function Index() {
 					</div>
 				</div>
 			</div>
-            <div>
 
-            <div className="h-full max-h-fit grid grid-cols-1 md:grid-cols-2 justify-center justify-items-center mx-auto items-center bg-black h-1/2">
-                <div className="text-white justify-center flex flex-col gap-1 md:gap-4 mx-2 mb-3">
-                    <h2 className='uppercase text-xs md:text-xl lg:text-2xl mt-4 mb-1 mx-auto'>
-                        Get Directions
-                    </h2>
-                    <span className="flex items-center gap-2 text-xs md:text-xl lg:text-2xl">
-                        <MapPin className="h-4 w-4 md:h-6 md:w-6 lg:h-8 lg:w-8" />
-                        {" "}
-                        465 Federal Rd, Brookfield, CT 06804
-                    </span>
-                    <span className="flex items-center gap-2 text-xs md:text-xl lg:text-2xl">
-                        <Clock10 className="h-4 w-4 md:h-6 md:w-6 lg:h-8 lg:w-8"  />
-                        {" "}
-                        <div className='flex flex-col'>
-                            <p>Open Today! Sales: 9am-5pm</p>
-                            <p>Open Today! Service: 9am-5pm</p>
-                        </div>
-                    </span>
+            <div className='relative'>
+                <div className="h-full max-h-fit grid grid-cols-1 md:grid-cols-2 justify-center justify-items-start md:justify-items-center mx-auto items-center bg-black h-1/2">
+                    <div className="text-white justify-center flex flex-col gap-1 md:gap-4 mx-2 mb-3 pl-4 md:pl-0">
+                        <h2 className='uppercase text-xl lg:text-2xl mt-4 mb-1 md:mx-auto'>
+                            Get Directions
+                        </h2>
+                        <span className="flex items-center gap-2 my-2 text-sm lg:text-base font-light">
+                            <MapPin
+                            className="h-4 w-4 md:h-6 md:w-6 lg:h-6 lg:w-6" />
+                            {" "}
+                            465 Federal Rd, Brookfield, CT 06804
+                        </span>
+                        <span className="flex items-center gap-2 my-2 text-sm lg:text-base font-light">
+                            <Clock10
+                            className="h-4 w-4 md:h-6 md:w-6 lg:h-6 lg:w-6" />
+                            {" "}
+                            <div className='flex flex-col'>
+                                <p>Open Today! Sales: 9am-5pm</p>
+                                <p>Open Today! Service: 9am-5pm</p>
+                            </div>
+                        </span>
+                    </div>
+                    <img
+                    className='object-cover max-h-64  w-full order-first md:order-last'
+                    src="https://api.mapbox.com/styles/v1/di-sysops/cle6iyspk000301jvzavqrvjp/static/pin-l+1499CE(-73.4056293,41.4596462)/-73.4056293,41.4596462,10,0,0/343x450@2x?access_token=pk.eyJ1IjoiZGktc3lzb3BzIiwiYSI6ImNqMnJzNnRvYTAwOXkzMHBsamE1cTd0OGcifQ.qlCfteKKSMrHmHxG0jahxA"
+                    />
                 </div>
-                <img
-                className='object-cover max-h-64  w-full'
-                src="https://api.mapbox.com/styles/v1/di-sysops/cle6iyspk000301jvzavqrvjp/static/pin-l+1499CE(-73.4056293,41.4596462)/-73.4056293,41.4596462,10,0,0/343x450@2x?access_token=pk.eyJ1IjoiZGktc3lzb3BzIiwiYSI6ImNqMnJzNnRvYTAwOXkzMHBsamE1cTd0OGcifQ.qlCfteKKSMrHmHxG0jahxA"
-                />
-            </div>
 
 			</div>
 		</main>
