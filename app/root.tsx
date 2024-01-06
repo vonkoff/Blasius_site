@@ -407,7 +407,8 @@ export function useTheme() {
 	if (optimisticMode) {
 		return optimisticMode === 'system' ? hints.theme : optimisticMode
 	}
-	return requestInfo.userPrefs.theme ?? hints.theme
+    return 'light'
+	// return requestInfo.userPrefs.theme ?? hints.theme
 }
 
 /**
